@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GiTeam</title>
+    <link rel="stylesheet" href="i/1.css">
+    <script src="i/jquery-2.0.3.js"></script>
+	<link rel="shortcut icon" type="image/png" href="favicon.png" />
+	<link rel="stylesheet" type="text/css" href="i/lightbox/css/lightbox.css"/>
+	<script type="text/javascript" src="i/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="i/lightbox/js/lightbox-2.6.min.js"></script>
+    <script src="i/1.js"></script>
+
+</head>
+<body>
+<div class="header-left">
+	<div class="logo">
+		<a href="/"><img src="i/DelfiStroy.png" width="220" height="36" alt="ДэлфиСтрой"></a>
+	</div>
+	<div class="descriptor">
+		Ремонт и отделка квартир, офисов<br/>
+		и магазинов в Москве.
+	</div>
+</div>
+<div class="header-right">
+	<div class="phone-info">Нужен ремонт? Звоните!</div>
+	<div class="phone">+7 (499) 347-26-74</div>
+	<div class="in-call">Круглосуточно. <a href="#incall" onclick="showrecall()">Заказать звонок</a></div>
+	<div class="recall-div" id="recall" style="display: none">
+		<div class="sign-close"><a onclick="hiderecall()">Закрыть</a></div>
+		<form class="sign-form" id="recall_form" method="post" onsubmit="return gorecall(this)">
+			<input type="hidden" name="mode" value="root-akciya">
+			<input type="hidden" name="from" value="Обратный">
+			<div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+			<div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+			<div class="sign-b"><button type="submit">Жду звонка</button></div>
+		</form>
+	</div>
+</div>
+<div class="header-center">
+	<div class="balls">
+		<span href="#" class="mothers">27612м<sup>2</sup></span>
+		<div class="balls-label">отремонтировано</div>
+
+	</div>
+</div>
+<div class="offer">
+	Ремонт без головной боли и переплат
+</div>
+<div class="sign-in">
+	<div class="main-sign-in">
+		<form class="sign-form" onsubmit="return gorecall(this)">
+			<input type="hidden" name="mode" value="root-akciya">
+			<input type="hidden" name="from" value="Первая">
+			<div class="sign-h">
+				Оставьте заявку<br/>
+				<small>
+				на бесплатный расчет<br/>
+				стоимости ремонта прямо сейчас!</small>
+			</div>
+			<div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+			<div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+			<div class="sign-b"><button type="submit">Заказать</button></div>
+<!--			<div class="sign-p"></div>-->
+		</form>
+		<div class="sign-info">Ваши данные в безопасности и не будут переданы третьим лицам.</div>
+	</div>
+	<div class="action">
+		<h1>Акция!</h1>
+		<p>Профессиональная уборка<br>после ремонта <b>в подарок</b>.</p>
+	</div>
+</div>
+<div class="counter"><div class="counter-in">
+        До конца акции осталось<div id="time">0 часов 52 минут 49 секунд</div>
+        <script>
+            var h=0;
+            var m=52;
+            var s=49;
+            var t = document.getElementById('time');
+            function nword(n, z, o, t) {
+                var k = n%100, w;
+                if (k>=10 && k <= 10) {
+                    w = z;
+                } else {
+                    switch(k%10){
+                        case 1: w = o; break;
+                        case 2:case 3:case 4: w = t; break;
+                        default: w = z;
+                    }
+                }
+                return n + ' ' + w;
+            }
+            var p;
+            setInterval(p=function () {
+                s--;
+                if (s < 0) {s=59;m--};
+                if (m < 0) {m=59;h--};
+                if (h < 0) {h=0; m=0; s=0};
+                t.innerHTML =
+                    (h > 0?nword(h, 'часов', 'час', 'часа'):'')
+                        +' '+	nword(m, 'минут', 'минута', 'минуты')
+                        +' '+	nword(s, 'секунд', 'секунда', 'секунды');
+            }, 1000);
+            p();
+        </script>
+    </div></div>
+<div class="infos">
+<h1>Что мы делаем и не делаем для своих клиентов?</h1>
+<div class="compare-wrap"><div class="compare-wrap-content">
+        <table class="compare">
+            <tr>
+                <td class="c-notok">
+                    &mdash; Мы не будем включать в смету непонятные вам виды работ и зарабатывать на вашем незнании;
+
+
+                </td>
+                <td class="c-ok">
+                    &mdash; Вместо этого мы включим только те работы, которые действительно необходимы, объясним, для чего они нужны, и сэкономим ваш бюджет, убрав все лишнее;
+                </td>
+            </tr>
+            <tr class="hili">
+                <td class="c-notok">
+                    &mdash; Мы не будем давать пустых обещаний;
+                </td>
+                <td class="c-ok">
+                    &mdash; Если в течение 3-х лет что-то окажется сделанным некачественно, мы бесплатно переделаем деффектное место за свой счет;
+                </td>
+            </tr>
+            <tr class="hili">
+                <td class="c-notok">
+                    &mdash; Мы не будем привлекать неквалифицированных граждан СНГ и выигрывать за счет низкой себестоимости работ;
+                </td>
+                <td class="c-ok">
+                    &mdash; Все наши мастера &mdash; славяне с опытом работы от 2-х лет, а прорабы &mdash; от 10-ти лет;
+                </td>
+            </tr>
+            <tr>
+                <td class="c-notok">
+                    &mdash; Вам не придется уже через год подклеивать углы обоев;
+                </td>
+                <td class="c-ok">
+                    &mdash; Все работы выполняются в строгом соответствии с государственными стандартами и СНиП;
+                </td>
+            </tr>
+            <tr class="hili">
+                <td class="c-notok">
+                    &mdash; Мы не придумываем оправданий, почему работы не были закончены в срок.
+                </td>
+                <td class="c-ok">
+                    &mdash; Все сроки работ заранее прописываются в договоре и неукоснительно соблюдаются. Если это не так - мы заплатим по 1000 рублей за каждый день просрочки.
+                </td>
+            </tr>
+        </table>
+    </div></div>
+<!--	<div class="content center"><div class="in-center">-->
+<!--		<ul class="plus">-->
+<!--			<li>Ваши роды пройдут быстрее, вы будете более спокойны.</li>-->
+<!--			<li>Вы научитесь правильно дышать.</li>-->
+<!--			<li>Вы быстро вернетесь в форму после появления малыша.</li>-->
+<!--			<li>Вы будете защищены от депрессии беременных, упражнения не позволят вам упасть духом.</li>-->
+<!--			<li>Вы станете более сильной и выносливой. Ваша спина скажет вам &laquo;спасибо&raquo;, она будет меньше уставать.</li>-->
+<!--		</ul>-->
+<!--	</div></div>-->
+<div class="alone-form"><div class="alone-form-in">
+        <form class="sign-form" onsubmit="return gorecall(this)">
+            <input type="hidden" name="mode" value="root-akciya">
+            <input type="hidden" name="from" value="Вторая">
+            <div class="sign-h">
+                Оставьте заявку<br/>
+                <small>
+                    на бесплатный расчет<br/>
+                    стоимости ремонта прямо сейчас!</small>
+            </div>
+            <div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+            <div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+            <div class="sign-b"><button type="submit">Заказать</button></div>
+            <!--			<div class="sign-p"></div>-->
+        </form>
+        <div class="sign-info">Ваши данные в безопасности и не будут переданы третьим лицам.</div>
+    </div></div>
+<h1>Отзывы о нашей работе</h1>
+<div class="cases">
+    <div class="case">
+        <img src="i/case1.jpg" width="207" height="207">
+        <div class="case-text">
+            &laquo;Когда я начал ремонт, к вартире не было даже стен. За два с половиной месяца мне с нуля построили санузел, кухню, спальню и отделали балкон. Порадовало, что сроки по договору соблюли, и что был адекватный прораб. Я ненавижу сам общатсья с рабочими, поэтому наличие прораба оценил. Отдельное спасибо за покупку материалов &mdash; чувствовалось, что мои деньги экономят, а не пытаются раздеть до трусов. Спасибо вам!&raquo;
+        </div>
+        <div class="case-sign">
+            Александр Ольшанский<br/>
+            <a href="http://vk.com/theborisblade" target="_blank">http://vk.com/theborisblade</a>
+        </div>
+    </div>
+
+    <div class="case">
+        <img src="i/case2.jpg" width="214" height="214">
+        <div class="case-text">
+            &laquo;Главное, что я чувствовала, работая с вами - это круглосуточная ответственность за результат. Поверьте, для меня как для бухгалтера это многого стоит.&raquo;
+        </div>
+        <div class="case-sign">
+            Роза Дутова<br/>
+            <a href="http://vk.com/roza_dutova" target="_blank">http://vk.com/roza_dutova</a>
+        </div>
+    </div>
+
+    <div class="case">
+        <img src="i/case3.jpg" width="214" height="214">
+        <div class="case-text">
+            &laquo;Мне нужно было отделать дачу. Я долго оттягивала это дело, но в итоге муж дал задание найти в интернете компанию. Я интернету не очень доверяю. Нашла "Дэлфи Строй" и еще несколько компаний. В итоге оставила вас. Сейчас, гляда на результат, я благодарна мужу за то, что он заставил меня искать в интернете. Мне давно не было так приятно приезжать на дачу.&raquo;
+        </div>
+        <div class="case-sign">
+            Елена Викторовна Дорошина
+        </div>
+    </div>
+</div>
+<div class="alone-form"><div class="alone-form-in">
+        <form class="sign-form" onsubmit="return gorecall(this)">
+            <input type="hidden" name="mode" value="root-akciya">
+            <input type="hidden" name="from" value="Отзывы">
+            <div class="sign-h">
+                Оставьте заявку<br/>
+                <small>
+                    на бесплатный расчет<br/>
+                    стоимости ремонта прямо сейчас!</small>
+            </div>
+            <div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+            <div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+            <div class="sign-b"><button type="submit">Заказать</button></div>
+            <!--			<div class="sign-p"></div>-->
+        </form>
+        <div class="sign-info">Ваши данные в безопасности и не будут переданы третьим лицам.</div>
+    </div></div>
+
+<h1>Примеры работ</h1>
+<div class="exs-wrap"><div class="exs">
+        <div class="ex"><a href="i/examples/001.jpg" data-lightbox="exs"><img src="i/examples/m/001.jpg" width="256"></a></div><div class="ex"><a href="i/examples/002.jpg" data-lightbox="exs"><img src="i/examples/m/002.jpg" width="256"></a></div><div class="ex"><a href="i/examples/003.jpg" data-lightbox="exs"><img src="i/examples/m/003.jpg" width="256"></a></div><div class="ex"><a href="i/examples/004.jpg" data-lightbox="exs"><img src="i/examples/m/004.jpg" width="256"></a></div><div class="ex"><a href="i/examples/005.jpg" data-lightbox="exs"><img src="i/examples/m/005.jpg" width="256"></a></div><div class="ex"><a href="i/examples/006.jpg" data-lightbox="exs"><img src="i/examples/m/006.jpg" width="256"></a></div><div class="ex"><a href="i/examples/007.jpg" data-lightbox="exs"><img src="i/examples/m/007.jpg" width="256"></a></div><div class="ex"><a href="i/examples/008.jpg" data-lightbox="exs"><img src="i/examples/m/008.jpg" width="256"></a></div><div class="ex"><a href="i/examples/009.jpg" data-lightbox="exs"><img src="i/examples/m/009.jpg" width="256"></a></div><div class="ex"><a href="i/examples/010.jpg" data-lightbox="exs"><img src="i/examples/m/010.jpg" width="256"></a></div><div class="ex"><a href="i/examples/011.jpg" data-lightbox="exs"><img src="i/examples/m/011.jpg" width="256"></a></div><div class="ex"><a href="i/examples/012.jpg" data-lightbox="exs"><img src="i/examples/m/012.jpg" width="256"></a></div><div class="ex"><a href="i/examples/013.jpg" data-lightbox="exs"><img src="i/examples/m/013.jpg" width="256"></a></div><div class="ex"><a href="i/examples/014.jpg" data-lightbox="exs"><img src="i/examples/m/014.jpg" width="256"></a></div><div class="ex"><a href="i/examples/015.jpg" data-lightbox="exs"><img src="i/examples/m/015.jpg" width="256"></a></div>    </div></div>
+<div class="alone-form"><div class="alone-form-in">
+        <form class="sign-form" onsubmit="return gorecall(this)">
+            <input type="hidden" name="mode" value="root-akciya">
+            <input type="hidden" name="from" value="Примеры">
+            <div class="sign-h">
+                Оставьте заявку<br/>
+                <small>
+                    на бесплатный расчет<br/>
+                    стоимости ремонта прямо сейчас!</small>
+            </div>
+            <div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+            <div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+            <div class="sign-b"><button type="submit">Заказать</button></div>
+            <!--			<div class="sign-p"></div>-->
+        </form>
+        <div class="sign-info">Ваши данные в безопасности и не будут переданы третьим лицам.</div>
+    </div></div>
+<h1>Как мы работаем?</h1>
+<div class="plan-wrap"><div class="plan">
+        <div class="plan-item plan-item-1">
+            <h2>1. Бесплатная оценка</h2>
+            <p>После звонка наш специалист бесплатно приедет к вам на место, посмотрит объект и:</p>
+            <ul>
+                <li>составит для вас смету,</li>
+                <li>расскажет вам сроки выполнения работ,</li>
+                <li>ответит на все вопросы, связанные с ремонтом,</li>
+                <li>выберет вместе с вами время проведения работ.</li>
+            </ul>
+        </div>
+        <div class="plan-item plan-item-2">
+            <h2>2. Составление договора</h2>
+            <p>После согласования сметы, заключается договор, в котором четко прописана дата окончания работ и масштаб работ.</p>
+        </div>
+        <div class="plan-item plan-item-3">
+            <h2>3. Выполнение работ</h2>
+            <p>После заключения договора к вам на объект приезжает профессиональная бригада и начинает работу под наблюдением прораба. Каждый человек в бригаде &mdash; специалист в определенной области.</p>
+            <p>Закупку материалов мы берем на себя.</p>
+            <p>Во время работ мы будем сообщать на каком этапе мы сейчас находимся.</p>
+        </div>
+        <div class="plan-item plan-item-4">
+            <h2>4. Окончание и принятие работы</h2>
+            <p>После окончания работ мы вызываем профессиональную компанию для уборки вашего помещения за наш счет.
+                Вы проверяете всю нашу работу и подписываете акт о приеме выполненной работы.</p>
+        </div>
+        <div class="plan-item plan-item-5">
+            <h2>5. Счастье</h2>
+
+        </div>
+    </div></div>
+<!--	<h1><a class="ha" onclick="$('#price-div').slideToggle(150)">Посмотреть прайс-лист</a></h1>-->
+<div class="alone-form"><div class="alone-form-in">
+        <form class="sign-form" onsubmit="return gorecall(this)">
+            <input type="hidden" name="mode" value="root-akciya">
+            <input type="hidden" name="from" value="План">
+            <div class="sign-h">
+                Оставьте заявку<br/>
+                <small>
+                    на бесплатный расчет<br/>
+                    стоимости ремонта прямо сейчас!</small>
+            </div>
+            <div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+            <div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+            <div class="sign-b"><button type="submit">Заказать</button></div>
+            <!--			<div class="sign-p"></div>-->
+        </form>
+        <div class="sign-info">Ваши данные в безопасности и не будут переданы третьим лицам.</div>
+    </div></div>
+<h1>Цены</h1>
+<div class="price-wrap" id="price-div" style="x-display: none"><div class="price-wrap-in">        <table class="price">
+
+            <tr><td colspan="4" class="table-h1">Отделочные работы</td></tr><tr><td colspan="4" class="table-h2">1. СТЕНЫ</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>1.1</td><td>Демонтаж настенного покрытия (обои)</td><td>м<sup>2</sup></td><td class="table-cost">80 р.</td></tr><tr><td>1.2</td><td>Демонтаж настенного покрытия (штукатурка, плитка)</td><td>м<sup>2</sup></td><td class="table-cost">160 р.</td></tr><tr><td>1.3</td><td>Нанесение насечек на маслянную краску (сдир краски)</td><td>м<sup>2</sup></td><td class="table-cost">300 р.</td></tr><tr><td>1.4</td><td>Облицовка стен ГКЛ на метал.каркасе</td><td>м<sup>2</sup></td><td class="table-cost">500 р.</td></tr><tr><td>1.5</td><td>Облицовка стен ГКЛ на клей</td><td>м<sup>2</sup></td><td class="table-cost">400 р.</td></tr><tr><td>1.6</td><td>Грунтовка</td><td>м<sup>2</sup></td><td class="table-cost">60 р.</td></tr><tr><td>1.7</td><td>Штукатурка</td><td>м<sup>2</sup></td><td class="table-cost">400 р.</td></tr><tr><td>1.8</td><td>Шпаклевка 1 слой</td><td>м<sup>2</sup></td><td class="table-cost">180 р.</td></tr><tr><td>1.9</td><td>Шпаклевка 2 слоя</td><td>м<sup>2</sup></td><td class="table-cost">250 р.</td></tr><tr><td>1.10</td><td>Оклейка обоями (флизелиновые)</td><td>м<sup>2</sup></td><td class="table-cost">180 р.</td></tr><tr><td>1.11</td><td>Оклейка обоями (виниловые без подгонки)</td><td>м<sup>2</sup></td><td class="table-cost">190 р.</td></tr><tr><td>1.12</td><td>Оклейка обоями (виниловые с подгонкой)</td><td>м<sup>2</sup></td><td class="table-cost">220 р.</td></tr><tr><td>1.13</td><td>Оклейка обоями (специальные: тканиевые и др.)</td><td>м<sup>2</sup></td><td class="table-cost">350 р.</td></tr><tr><td>1.14</td><td>Покраска на 2 слоя</td><td>м<sup>2</sup></td><td class="table-cost">200 р.</td></tr><tr><td>1.15</td><td>Укладка керамической плитки с затиркой швов</td><td>м<sup>2</sup></td><td class="table-cost">700 р.</td></tr><tr><td>1.16</td><td>Укладка декоративного бордюра</td><td>м.п</td><td class="table-cost">280 р.</td></tr><tr><td>1.17</td><td>Установка защитных углов</td><td>м.п.</td><td class="table-cost">80 р.</td></tr><tr><td>1.18</td><td>Демонтаж перегородки</td><td>м<sup>2</sup></td><td class="table-cost">420 р.</td></tr><tr><td>1.19</td><td>Монтаж перегородки из пеноблока</td><td>м<sup>2</sup></td><td class="table-cost">550 р.</td></tr><tr><td>1.20</td><td>Монтаж перегородки из ГКЛ</td><td>м<sup>2</sup></td><td class="table-cost">700 р.</td></tr><tr><td colspan="4" class="table-h2">2. ПОТОЛОК</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>2.1</td><td>Зачистка потолка</td><td>м<sup>2</sup></td><td class="table-cost">130 р.</td></tr><tr><td>2.2</td><td>Грунтовка</td><td>м<sup>2</sup></td><td class="table-cost">80 р.</td></tr><tr><td>2.3</td><td>Штукатурка</td><td>м<sup>2</sup></td><td class="table-cost">420 р.</td></tr><tr><td>2.4</td><td>Шпатлевка на 2 слоя</td><td>м<sup>2</sup></td><td class="table-cost">300 р.</td></tr><tr><td>2.5</td><td>Оклейка обоями</td><td>м<sup>2</sup></td><td class="table-cost">300 р.</td></tr><tr><td>2.6</td><td>Оклейка обоями (виниловые без подгонки)</td><td>м<sup>2</sup></td><td class="table-cost">320 р.</td></tr><tr><td>2.7</td><td>Оклейка обоями (виниловые с подгонкой)</td><td>м<sup>2</sup></td><td class="table-cost">350 р.</td></tr><tr><td>2.8</td><td>Оклейка обоями (специальные: тканиевые и др.)</td><td>м<sup>2</sup></td><td class="table-cost">400 р.</td></tr><tr><td>2.9</td><td>Покраска на 2 слоя</td><td>м<sup>2</sup></td><td class="table-cost">250 р.</td></tr><tr><td>2.10</td><td>Монтаж панелей ПВХ</td><td>м<sup>2</sup></td><td class="table-cost">360 р.</td></tr><tr><td>2.11</td><td>Монтаж из ГКЛ в 1 уровень</td><td>м<sup>2</sup></td><td class="table-cost">600 р.</td></tr><tr><td>2.12</td><td>Монтаж из ГКЛ в несколько уровней</td><td>м<sup>2</sup></td><td class="table-cost">750 р.</td></tr><tr><td>2.13</td><td>Монтаж  «Armstrong»</td><td>м<sup>2</sup></td><td class="table-cost">500 р.</td></tr><tr><td>2.14</td><td>Реечный потолок по ровной поверхности</td><td>м<sup>2</sup></td><td class="table-cost">900 р.</td></tr><tr><td>2.15</td><td>Реечный потолок по неровной поверхности</td><td>м<sup>2</sup></td><td class="table-cost">1 100 р.</td></tr><tr><td>2.16</td><td>Установка галтелей с покраской (пенополистирол)</td><td>м.п.</td><td class="table-cost">180 р.</td></tr><tr><td>2.17</td><td>Установка галтелей с покраской (полеуретан)</td><td>м.п.</td><td class="table-cost">200 р.</td></tr><tr><td>2.18</td><td>Установка галтелей с покраской (ПВХ, пластик)</td><td>м.п.</td><td class="table-cost">220 р.</td></tr><tr><td colspan="4" class="table-h2">3. ПОЛ</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>3.1</td><td>Демонтаж напольного покрытия (линолеум)</td><td>м<sup>2</sup></td><td class="table-cost">80 р.</td></tr><tr><td>3.2</td><td>Демонтаж напольного покрытия (паркет)</td><td>м<sup>2</sup></td><td class="table-cost">120 р.</td></tr><tr><td>3.3</td><td>Демонтаж напольного покрытия (плитка)</td><td>м<sup>2</sup></td><td class="table-cost">160 р.</td></tr><tr><td>3.4</td><td>Демонтаж напольного покрытия (до чернового основания)</td><td>м<sup>2</sup></td><td class="table-cost">300 р.</td></tr><tr><td>3.5</td><td>Изготовление ЦПС стяжки по маякам (до 4 см)</td><td>м<sup>2</sup></td><td class="table-cost">400 р.</td></tr><tr><td>3.6</td><td>Изготовление ЦПС стяжки по маякам (до 7 см)</td><td>м<sup>2</sup></td><td class="table-cost">600 р.</td></tr><tr><td>3.7</td><td>Выравнивание нивелирующей смесью</td><td>м<sup>2</sup></td><td class="table-cost">250 р.</td></tr><tr><td>3.8</td><td>Укладка ламината с подложкой</td><td>м<sup>2</sup></td><td class="table-cost">300 р.</td></tr><tr><td>3.9</td><td>Укладка ламината без соеденительных стыков</td><td>м<sup>2</sup></td><td class="table-cost">400 р.</td></tr><tr><td>3.10</td><td>Укладка ламината с обработкой швов герметиком</td><td>м<sup>2</sup></td><td class="table-cost">500 р.</td></tr><tr><td>3.11</td><td>Укладка паркета с подложкой</td><td>м<sup>2</sup></td><td class="table-cost">390 р.</td></tr><tr><td>3.12</td><td>Укладка линолеума</td><td>м<sup>2</sup></td><td class="table-cost">220 р.</td></tr><tr><td>3.13</td><td>Укладка фанеры</td><td>м<sup>2</sup></td><td class="table-cost">200 р.</td></tr><tr><td>3.14</td><td>Гидроизоляция пола</td><td>м<sup>2</sup></td><td class="table-cost">210 р.</td></tr><tr><td>3.15</td><td>Укладка керамической плитки с затиркой швов</td><td>м<sup>2</sup></td><td class="table-cost">700 р.</td></tr><tr><td>3.16</td><td>Укладка ковролина</td><td>м<sup>2</sup></td><td class="table-cost">200 р.</td></tr><tr><td>3.17</td><td>Установка плинтуса (ПВХ)</td><td>м.п.</td><td class="table-cost">120 р.</td></tr><tr><td>3.18</td><td>Установка плинтуса (МДФ)</td><td>м.п.</td><td class="table-cost">100 р.</td></tr><tr><td>3.19</td><td>Установка плинтуса (Деревянный)</td><td>м.п.</td><td class="table-cost">150 р.</td></tr><tr><td colspan="4" class="table-h2">4. ДВЕРИ</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>4.1</td><td>Демонтаж межкомнатной двери</td><td>шт</td><td class="table-cost">500 р.</td></tr><tr><td>4.2</td><td>Монтаж межкомнатной двери</td><td>шт</td><td class="table-cost">3 000 р.</td></tr><tr><td colspan="4" class="table-h2">5. ВЫНОС МУСОРА</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>5.1</td><td>Вывоз строительного мусора</td><td>маш</td><td class="table-cost">6 000 р.</td></tr><tr><td>5.2</td><td>Вынос негабаритного мусора</td><td>этаж</td><td class="table-cost">300 р.</td></tr><tr><td>5.3</td><td>Передвижение мебели</td><td>комн</td><td class="table-cost">1 500 р.</td></tr><tr><td colspan="4" class="table-h2">6. ЭЛЕКТРОМОНТАЖНЫЕ РАБОТЫ</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>6.1</td><td>Монтаж щита навесного</td><td>шт</td><td class="table-cost">3 000 р.</td></tr><tr><td>6.2</td><td>Монтаж щита встроенного</td><td>шт</td><td class="table-cost">4 500 р.</td></tr><tr><td>6.3</td><td>Установка счетчика однофазного</td><td>шт</td><td class="table-cost">1 600 р.</td></tr><tr><td>6.4</td><td>Установка счетчика трехфазного</td><td>шт</td><td class="table-cost">2 000 р.</td></tr><tr><td>6.5</td><td>Установка однофазного диф.автомата</td><td>шт</td><td class="table-cost">250 р.</td></tr><tr><td>6.6</td><td>Установка трехфазного диф.автомата</td><td>шт</td><td class="table-cost">300 р.</td></tr><tr><td>6.7</td><td>Установка УЗО однофазного</td><td>шт</td><td class="table-cost">250 р.</td></tr><tr><td>6.8</td><td>Установка УЗО трехфазного</td><td>шт</td><td class="table-cost">300 р.</td></tr><tr><td>6.9</td><td>установка автомата однофазного</td><td>шт</td><td class="table-cost">600 р.</td></tr><tr><td>6.10</td><td>установка автомата трехфазного</td><td>шт</td><td class="table-cost">800 р.</td></tr><tr><td>6.11</td><td>Открытая проводка на скобу</td><td>м</td><td class="table-cost">100 р.</td></tr><tr><td>6.12</td><td>Открытая проводка в гофре на скобу</td><td>м</td><td class="table-cost">150 р.</td></tr><tr><td>6.13</td><td>Открытая проводка в каб.канале</td><td>м</td><td class="table-cost">100 р.</td></tr><tr><td>6.14</td><td>Штроба бетон</td><td>м</td><td class="table-cost">300 р.</td></tr><tr><td>6.15</td><td>Штроба кирпич</td><td>м</td><td class="table-cost">300 р.</td></tr><tr><td>6.16</td><td>Монтаж кабеля</td><td>м</td><td class="table-cost">120 р.</td></tr><tr><td>6.17</td><td>Установка монт. Коробки в кирпич/бетон</td><td>шт</td><td class="table-cost">300 р.</td></tr><tr><td>6.18</td><td>Установка монт.коробки увеличенной</td><td>шт</td><td class="table-cost">350 р.</td></tr><tr><td>6.19</td><td>Установка монт.коробки в ГКЛ</td><td>шт</td><td class="table-cost">200 р.</td></tr><tr><td>6.20</td><td>Установка распред.коробки в кирпич/бетон</td><td>шт</td><td class="table-cost">400 р.</td></tr><tr><td>6.21</td><td>Установка распред.коробки в ГКЛ</td><td>шт</td><td class="table-cost">300 р.</td></tr><tr><td>6.22</td><td>Установка накладной распред.коробки</td><td>шт</td><td class="table-cost">400 р.</td></tr><tr><td>6.23</td><td>Установка роз., выкл., переключателя</td><td>шт</td><td class="table-cost">200 р.</td></tr><tr><td>6.24</td><td>Установка двойной розетки</td><td>шт</td><td class="table-cost">250 р.</td></tr><tr><td>6.25</td><td>Люстра</td><td>шт</td><td class="table-cost">700 р.</td></tr><tr><td>6.26</td><td>Бра настенное</td><td>шт</td><td class="table-cost">550 р.</td></tr><tr><td>6.27</td><td>Светильник дневного света</td><td>шт</td><td class="table-cost">400 р.</td></tr><tr><td>6.28</td><td>Светильник в подвесной потолок</td><td>шт</td><td class="table-cost">280 р.</td></tr><tr><td>6.29</td><td>Светильник галогеновый 12v в подвесной потолок</td><td>шт</td><td class="table-cost">280 р.</td></tr><tr><td colspan="4" class="table-h2">7. САНТЕХНИЧЕСКИЕ РАБОТЫ</td></tr><tr><th>№</th><th>Наименование работ</th><th>ед.изм.</th><th>Цена, руб.</th></tr><tr><td>7.1</td><td>Подготовка радиатора к покраске</td><td>шт</td><td class="table-cost">300 р.</td></tr><tr><td>7.2</td><td>Покраска радиатора</td><td>шт</td><td class="table-cost">1 200 р.</td></tr><tr><td>7.3</td><td>Демонтаж радиатора</td><td>шт</td><td class="table-cost">700 р.</td></tr><tr><td>7.4</td><td>Монтаж радиатора</td><td>шт</td><td class="table-cost">2 000 р.</td></tr><tr><td>7.5</td><td>Замена декор.решетки радиатора</td><td>шт</td><td class="table-cost">400 р.</td></tr><tr><td>7.6</td><td>Демонтаж подводки радиатора</td><td>шт</td><td class="table-cost">500 р.</td></tr><tr><td>7.7</td><td>Монтаж подводки радиатора</td><td>шт</td><td class="table-cost">900 р.</td></tr><tr><td>7.8</td><td>Демонтаж раковины</td><td>шт</td><td class="table-cost">500 р.</td></tr><tr><td>7.9</td><td>Монтаж раковины</td><td>шт</td><td class="table-cost">1 200 р.</td></tr><tr><td>7.10</td><td>Монтаж раковины (на тумбе)</td><td>шт</td><td class="table-cost">1 600 р.</td></tr><tr><td>7.11</td><td>Демонтаж смесителя</td><td>шт</td><td class="table-cost">150 р.</td></tr><tr><td>7.12</td><td>Монтаж смесителя</td><td>шт</td><td class="table-cost">600 р.</td></tr><tr><td>7.13</td><td>Монтаж мини раковины со смесителем</td><td>шт</td><td class="table-cost">2 500 р.</td></tr><tr><td>7.14</td><td>Демонтаж ванны с выносом</td><td>шт</td><td class="table-cost">1 200 р.</td></tr><tr><td>7.15</td><td>Монтаж ванны</td><td>шт</td><td class="table-cost">3 500 р.</td></tr><tr><td>7.16</td><td>Установка душевой кабины</td><td>шт</td><td class="table-cost">5 800 р.</td></tr><tr><td>7.17</td><td>Установка душевой штанги</td><td>шт</td><td class="table-cost">500 р.</td></tr><tr><td>7.18</td><td>Перенос стояка</td><td>шт</td><td class="table-cost">3 700 р.</td></tr><tr><td>7.19</td><td>Установка стиральной машины</td><td>шт</td><td class="table-cost">900 р.</td></tr><tr><td>7.20</td><td>Комуникация узла горячей воды по потребителям</td><td>компл</td><td class="table-cost">2 300 р.</td></tr><tr><td>7.21</td><td>Комуникация узла холодной воды по потребителям</td><td>компл</td><td class="table-cost">2 300 р.</td></tr><tr><td>7.22</td><td>Штробление стены под водопроводные трубы</td><td>м.п.</td><td class="table-cost">600 р.</td></tr><tr><td>7.23</td><td>Прокладка труб канализации</td><td>м.п.</td><td class="table-cost">350 р.</td></tr><tr><td>7.24</td><td>Изготовление короба из ГКЛ на стояк</td><td>шт</td><td class="table-cost">1 500 р.</td></tr><tr><td>7.25</td><td>Демонтаж унитаза</td><td>шт</td><td class="table-cost">500 р.</td></tr><tr><td>7.26</td><td>Установка напольного унитаза</td><td>шт</td><td class="table-cost">1 500 р.</td></tr><tr><td>7.27</td><td>Установка унитаза инсталляция</td><td>шт</td><td class="table-cost">3 500 р.</td></tr><tr><td>7.28</td><td>Замена стояка (одно перекрытие)</td><td>шт</td><td class="table-cost">4 200 р.</td></tr><tr><td>7.29</td><td>Замена подводки хол. и горяч. Водоснабжения (простая)</td><td>шт</td><td class="table-cost">3 800 р.</td></tr><tr><td>7.30</td><td>Замена подводки хол. и горяч. Водоснабжения (сложная)</td><td>шт</td><td class="table-cost">4 800 р.</td></tr><tr><td>7.31</td><td>Замена канализации по квартире без выжигания раструба</td><td>шт</td><td class="table-cost">2 700 р.</td></tr><tr><td>7.32</td><td>Замена канализации по квартире с выжиганием раструба</td><td>шт</td><td class="table-cost">3 700 р.</td></tr><tr><td>7.33</td><td>Монтаж поддона для душевой кабины</td><td>шт</td><td class="table-cost">2 100 р.</td></tr><tr><td>7.34</td><td>Замена полотенцесушителя</td><td>шт</td><td class="table-cost">2 900 р.</td></tr>        </table>
+    </div></div>
+<div class="text-wrap"><div class="text" style="text-align: center">
+        <p>Или <a href="DelfistroyPrice.xlsx">скачать прайс-лист себе на компьютер</a>.</p>
+    </div></div>
+
+<h1><b>Ещё не уверены</b>, что это лучшее решение?</h1>
+<div class="alone-form"><div class="arr"><div class="arr-in">
+            <div class="i1"></div><div class="i2">
+                <div class="arr1">
+                    Оставьте заявку сейчас<br/>
+                    и узнайте подробности
+                </div>
+                <div class="arr2">
+                    Цена вас приятно удивит
+                </div>
+            </div>
+        </div></div><div class="alone-form-in">
+
+        <form class="sign-form" onsubmit="return gorecall(this)">
+            <input type="hidden" name="mode" value="root-akciya">
+            <input type="hidden" name="from" value="Третья">
+            <div class="sign-h">
+                Оставьте заявку<br/>
+                <small>
+                    на бесплатный расчет<br/>
+                    стоимости ремонта прямо сейчас!</small>
+            </div>
+            <div class="sign-i"><input type="text" placeholder="Введите имя" name="name"></div>
+            <div class="sign-i"><input type="text" placeholder="Введите телефон" name="phone"></div>
+            <div class="sign-b"><button type="submit">Заказать</button></div>
+            <!--			<div class="sign-p"></div>-->
+        </form>
+        <div class="sign-info">Ваши данные в безопастности и не будут переданы третьим лицам.</div>
+    </div></div>
+
+<h1>У вас остались ещё вопросы?</h1>
+<div class="content center"><div class="in-center">
+        <p><span style="font-size: 20px">Звоните по телефону <b style="font-size: 24px; display: inline-block; background: #e7e7e7; vertical-align: baseline; padding: 0.3em;border-radius: 2em" class="ya-phone">+7 (499) 347-26-74</b> или <a href="#incall" onclick="return showrecall(1)">закажите обратный звонок</a>.</span> <br/>Мы с удовольствием ответим на все ваши вопросы. </p>
+
+    </div></div>
+<div class="item">
+
+</div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {try {w.yaCounter21866446 = new Ya.Metrika({id:21866446,webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});} catch(e) { }});
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {d.addEventListener("DOMContentLoaded", f, false);} else { f(); }})(document, window, "yandex_metrika_callbacks");
+</script><noscript><div><img src="//mc.yandex.ru/watch/21866446" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
